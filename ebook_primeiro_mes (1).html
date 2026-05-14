@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Primeiro Mês Sem Dinheiro Para Investir</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080c0a;
+    --dark: #0f1410;
+    --card: #151c16;
+    --card2: #1a2218;
+    --green: #22c55e;
+    --green-dim: #16a34a;
+    --green-glow: rgba(34,197,94,0.12);
+    --gold: #f59e0b;
+    --gold-dim: #d97706;
+    --gold-glow: rgba(245,158,11,0.12);
+    --white: #f0f4f1;
+    --muted: #8a9e8e;
+    --border: rgba(34,197,94,0.18);
+    --border-gold: rgba(245,158,11,0.2);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(8,12,10,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 60px;
+  }
+  .nav-brand { font-family:'Space Mono',monospace; color:var(--green); font-size:13px; letter-spacing:2px; text-transform:uppercase; }
+  .nav-links { display:flex; gap:1.5rem; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; transition:color .2s; }
+  .nav-links a:hover { color:var(--green); }
+  /* PROGRESS BAR */
+  #progress { position:fixed; top:60px; left:0; height:2px; background:linear-gradient(90deg,var(--green),var(--gold)); width:0%; z-index:99; transition:width .1s; }
+
+  /* SECTIONS */
+  section { min-height:100vh; padding:120px 2rem 80px; max-width:900px; margin:0 auto; }
+  section#cover { max-width:100%; padding:0; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+
+  /* COVER */
+  .cover-wrap {
+    width:100%; min-height:100vh;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(34,197,94,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 70% 70%, rgba(245,158,11,0.05) 0%, transparent 70%),
+                var(--black);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:4rem 2rem; position:relative; overflow:hidden;
+  }
+  .cover-wrap::before {
+    content:''; position:absolute; inset:0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(34,197,94,0.03) 40px, rgba(34,197,94,0.03) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(34,197,94,0.03) 40px, rgba(34,197,94,0.03) 41px);
+    pointer-events:none;
+  }
+  .cover-tag {
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:3px;
+    color:var(--green); text-transform:uppercase; border:1px solid var(--border);
+    padding:6px 18px; border-radius:100px; margin-bottom:2rem;
+    background:var(--green-glow);
+  }
+  .cover-title {
+    font-family:'Playfair Display',serif; font-size:clamp(2.2rem,6vw,4rem);
+    font-weight:800; line-height:1.15; max-width:780px;
+    background: linear-gradient(135deg, #ffffff 0%, #d1fae5 40%, var(--green) 70%, var(--gold) 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    margin-bottom:1.5rem;
+  }
+  .cover-sub {
+    font-size:1.1rem; color:var(--muted); max-width:560px;
+    line-height:1.8; margin-bottom:2.5rem;
+  }
+  .cover-promise {
+    display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:3rem;
+  }
+  .promise-chip {
+    background:var(--card); border:1px solid var(--border);
+    padding:10px 18px; border-radius:8px; font-size:13px; font-weight:500;
+    color:var(--white);
+  }
+  .promise-chip span { color:var(--green); margin-right:6px; }
+  .cta-btn {
+    background: var(--green); color:#000; font-weight:700; font-size:15px;
+    padding:14px 36px; border-radius:8px; text-decoration:none;
+    display:inline-block; transition:all .2s; border:none; cursor:pointer;
+    font-family:'DM Sans',sans-serif;
+  }
+  .cta-btn:hover { background:var(--green-dim); transform:translateY(-1px); }
+  .cover-stats {
+    display:flex; gap:3rem; margin-top:4rem; flex-wrap:wrap; justify-content:center;
+  }
+  .cover-stat { text-align:center; }
+  .cover-stat-num { font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold); font-weight:700; }
+  .cover-stat-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px; }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:3px;
+    color:var(--green); text-transform:uppercase; margin-bottom:1rem;
+  }
+  h1.section-title {
+    font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem);
+    font-weight:800; line-height:1.2; margin-bottom:1.5rem;
+  }
+  h2.week-title {
+    font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:800;
+    color:var(--white); margin-bottom:.5rem;
+  }
+  .gradient-text { background:linear-gradient(90deg,var(--green),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+  /* DIVIDER */
+  .divider { width:60px; height:3px; background:linear-gradient(90deg,var(--green),var(--gold)); border-radius:3px; margin:1.5rem 0; }
+
+  /* CARDS */
+  .card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:1.5rem;
+    transition:border-color .2s;
+  }
+  .card:hover { border-color:var(--green); }
+  .card-gold { border-color:var(--border-gold); }
+  .card-gold:hover { border-color:var(--gold); }
+
+  /* DAY CARDS */
+  .day-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:16px; margin-bottom:2rem; overflow:hidden;
+  }
+  .day-header {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.25rem 1.5rem; cursor:pointer;
+    border-bottom:1px solid transparent; transition:all .2s;
+  }
+  .day-header:hover { background:var(--green-glow); border-bottom-color:var(--border); }
+  .day-header.open { background:var(--green-glow); border-bottom-color:var(--border); }
+  .day-num {
+    font-family:'Space Mono',monospace; font-size:11px; color:var(--green);
+    letter-spacing:2px; text-transform:uppercase;
+    background:var(--green-glow); border:1px solid var(--border);
+    padding:4px 12px; border-radius:100px;
+  }
+  .day-title-text { font-weight:600; font-size:1rem; flex:1; margin:0 1rem; }
+  .day-time { font-size:12px; color:var(--muted); white-space:nowrap; }
+  .day-chevron { color:var(--muted); transition:transform .3s; font-size:18px; }
+  .day-header.open .day-chevron { transform:rotate(180deg); }
+  .day-body { display:none; padding:1.5rem; }
+  .day-body.open { display:block; }
+
+  .day-section { margin-bottom:1.5rem; }
+  .day-section-label {
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px;
+    color:var(--gold); text-transform:uppercase; margin-bottom:.5rem;
+  }
+  .day-section p, .day-section li { font-size:14.5px; color:#c8d9cb; line-height:1.8; }
+  .day-section ul { padding-left:1.25rem; }
+  .day-section li { margin-bottom:.3rem; }
+  .day-section li::marker { color:var(--green); }
+
+  .highlight-box {
+    background:var(--green-glow); border:1px solid var(--border);
+    border-left:3px solid var(--green); border-radius:8px; padding:1rem 1.25rem;
+    margin:.75rem 0; font-size:14px;
+  }
+  .highlight-gold {
+    background:var(--gold-glow); border:1px solid var(--border-gold);
+    border-left:3px solid var(--gold); border-radius:8px; padding:1rem 1.25rem;
+    margin:.75rem 0; font-size:14px;
+  }
+  .error-box {
+    background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.2);
+    border-left:3px solid #ef4444; border-radius:8px; padding:1rem 1.25rem;
+    margin:.75rem 0; font-size:14px;
+  }
+
+  /* TOOLS CHIPS */
+  .tools-chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+  .tool-chip {
+    background:rgba(34,197,94,0.08); border:1px solid var(--border);
+    color:var(--green); font-size:12px; font-weight:500;
+    padding:4px 12px; border-radius:100px;
+  }
+
+  /* WEEK BANNER */
+  .week-banner {
+    background:linear-gradient(135deg,rgba(34,197,94,0.1) 0%,rgba(245,158,11,0.06) 100%);
+    border:1px solid var(--border); border-radius:16px;
+    padding:2rem; margin-bottom:2.5rem; position:relative; overflow:hidden;
+  }
+  .week-banner::before {
+    content:''; position:absolute; right:-20px; top:-20px;
+    width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle,rgba(34,197,94,0.15) 0%,transparent 70%);
+  }
+  .week-number {
+    font-family:'Space Mono',monospace; font-size:52px; font-weight:700;
+    color:rgba(34,197,94,0.12); position:absolute; right:2rem; top:50%;
+    transform:translateY(-50%); line-height:1; pointer-events:none;
+  }
+  .week-goals { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+  .week-goal-tag {
+    background:var(--card); border:1px solid var(--border);
+    font-size:12px; padding:5px 12px; border-radius:6px; color:var(--white);
+  }
+
+  /* CHECKLIST */
+  .checklist-item {
+    display:flex; align-items:flex-start; gap:.75rem;
+    padding:.6rem 0; border-bottom:1px solid rgba(34,197,94,0.06);
+  }
+  .checklist-item:last-child { border-bottom:none; }
+  .check-box {
+    width:18px; height:18px; border:1.5px solid var(--border);
+    border-radius:4px; flex-shrink:0; margin-top:2px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:all .2s;
+  }
+  .check-box:hover { border-color:var(--green); }
+  .check-box.checked { background:var(--green); border-color:var(--green); }
+  .check-box.checked::after { content:'✓'; font-size:11px; color:#000; font-weight:700; }
+  .checklist-text { font-size:14px; color:var(--white); line-height:1.6; }
+  .checklist-text.done { text-decoration:line-through; color:var(--muted); }
+
+  /* SCRIPTS / TEMPLATES */
+  .template-box {
+    background:#0a110b; border:1px solid var(--border);
+    border-radius:10px; padding:1.25rem; margin:.75rem 0;
+    font-size:13.5px; line-height:1.9; color:#b8ccbb;
+    position:relative;
+  }
+  .template-label {
+    position:absolute; top:-10px; left:12px;
+    background:var(--green); color:#000; font-size:10px; font-weight:700;
+    padding:2px 10px; border-radius:100px; letter-spacing:1px; text-transform:uppercase;
+  }
+  .copy-btn {
+    position:absolute; top:10px; right:10px;
+    background:var(--card); border:1px solid var(--border);
+    color:var(--muted); font-size:11px; padding:4px 10px; border-radius:6px;
+    cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s;
+  }
+  .copy-btn:hover { color:var(--green); border-color:var(--green); }
+
+  /* BONUS TABLE */
+  .bonus-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .bonus-table th {
+    background:var(--card2); color:var(--green);
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:1px;
+    text-transform:uppercase; padding:10px 12px; text-align:left;
+    border-bottom:1px solid var(--border);
+  }
+  .bonus-table td { padding:10px 12px; border-bottom:1px solid rgba(34,197,94,0.05); color:#c0d5c3; }
+  .bonus-table tr:hover td { background:var(--green-glow); }
+  .difficulty { padding:3px 10px; border-radius:100px; font-size:11px; font-weight:600; }
+  .diff-easy { background:rgba(34,197,94,0.15); color:var(--green); }
+  .diff-med { background:rgba(245,158,11,0.15); color:var(--gold); }
+  .diff-hard { background:rgba(239,68,68,0.12); color:#f87171; }
+
+  /* QUOTE / HIGHLIGHT */
+  .quote-block {
+    border-left:3px solid var(--gold); padding:1.25rem 1.5rem;
+    margin:2rem 0; background:var(--gold-glow); border-radius:0 8px 8px 0;
+  }
+  .quote-block p { font-family:'Playfair Display',serif; font-size:1.15rem; font-style:italic; color:var(--white); line-height:1.7; }
+  .quote-block cite { font-size:12px; color:var(--gold); letter-spacing:1px; margin-top:.5rem; display:block; }
+
+  /* FOOTER */
+  footer {
+    text-align:center; padding:4rem 2rem; border-top:1px solid var(--border);
+    color:var(--muted); font-size:13px;
+  }
+  footer a { color:var(--green); text-decoration:none; }
+  .footer-brand {
+    font-family:'Playfair Display',serif; font-size:1.4rem;
+    background:linear-gradient(90deg,var(--green),var(--gold));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    margin-bottom:.5rem;
+  }
+
+  /* UTILITY */
+  .flex-between { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+  .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; }
+  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+  .mb1 { margin-bottom:1rem; }
+  .mb2 { margin-bottom:2rem; }
+  .mb3 { margin-bottom:3rem; }
+  .mt1 { margin-top:1rem; }
+  .mt2 { margin-top:2rem; }
+  .text-green { color:var(--green); }
+  .text-gold { color:var(--gold); }
+  .text-muted { color:var(--muted); }
+  .font-mono { font-family:'Space Mono',monospace; }
+  strong { color:var(--white); font-weight:600; }
+  em { color:var(--gold); font-style:normal; }
+
+  @media(max-width:640px){
+    .nav-links { display:none; }
+    section { padding:90px 1.25rem 60px; }
+    .cover-stats { gap:1.5rem; }
+    .week-number { font-size:36px; }
+    .bonus-table { font-size:11px; }
+    .bonus-table th, .bonus-table td { padding:8px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROGRESS -->
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">📱 Guia Primeiro Mês</div>
+  <div class="nav-links">
+    <a href="#intro">Intro</a>
+    <a href="#semana1">Sem. 1</a>
+    <a href="#semana2">Sem. 2</a>
+    <a href="#semana3">Sem. 3</a>
+    <a href="#semana4">Sem. 4</a>
+    <a href="#checklists">Checklists</a>
+    <a href="#templates">Modelos</a>
+    <a href="#bonus">Bônus</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+<div class="cover-wrap">
+  <div class="cover-tag">✦ Edição 2026 · Plano Completo de 30 Dias</div>
+  <h1 class="cover-title">Guia de Primeiro Mês<br>Sem Dinheiro Para Investir</h1>
+  <p class="cover-sub">Como sair do zero absoluto e fazer o primeiro PIX usando apenas o celular, WhatsApp, Canva gratuito e ChatGPT gratuito.</p>
+  <div class="cover-promise">
+    <div class="promise-chip"><span>📱</span>Só com celular</div>
+    <div class="promise-chip"><span>🆓</span>100% ferramentas gratuitas</div>
+    <div class="promise-chip"><span>⏱</span>Máx. 45 min/dia</div>
+    <div class="promise-chip"><span>💸</span>Primeiro PIX em 30 dias</div>
+  </div>
+  <a href="#intro" class="cta-btn">Começar agora →</a>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="cover-stat-num">30</div><div class="cover-stat-label">Dias de Plano</div></div>
+    <div class="cover-stat"><div class="cover-stat-num">45</div><div class="cover-stat-label">Min. por dia</div></div>
+    <div class="cover-stat"><div class="cover-stat-num">R$0</div><div class="cover-stat-label">Para começar</div></div>
+    <div class="cover-stat"><div class="cover-stat-num">20+</div><div class="cover-stat-label">Scripts prontos</div></div>
+  </div>
+</div>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="section-label">◆ Introdução</div>
+  <h1 class="section-title">Por que <span class="gradient-text">ainda é possível</span><br>começar do zero em 2026</h1>
+  <div class="divider"></div>
+
+  <p style="color:#c0d5c3;margin-bottom:1.5rem;">Se você está lendo isso com o celular na mão, pensando <em>"eu não tenho dinheiro, não tenho seguidores, não sei fazer nada"</em> — este guia foi criado especificamente para você.</p>
+
+  <div class="grid2 mb3">
+    <div class="card">
+      <div style="font-size:1.8rem;margin-bottom:.75rem;">🤖</div>
+      <strong style="font-size:.95rem;">A IA nivelou o jogo</strong>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:.4rem;">O ChatGPT gratuito faz em 2 minutos o que antes levava horas de estudo. Você não precisa ser especialista — você precisa saber usar a ferramenta certa.</p>
+    </div>
+    <div class="card">
+      <div style="font-size:1.8rem;margin-bottom:.75rem;">📲</div>
+      <strong style="font-size:.95rem;">Não precisa aparecer</strong>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:.4rem;">Você pode vender serviços digitais pelo WhatsApp, sem criar conteúdo público, sem stories, sem mostrar o rosto. Existe mercado para isso agora.</p>
+    </div>
+    <div class="card">
+      <div style="font-size:1.8rem;margin-bottom:.75rem;">⏱️</div>
+      <strong style="font-size:.95rem;">45 minutos mudam tudo</strong>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:.4rem;">Não estamos falando de longa jornada. São 45 minutos por dia com intenção. No horário de almoço, antes de dormir, no ônibus.</p>
+    </div>
+    <div class="card card-gold">
+      <div style="font-size:1.8rem;margin-bottom:.75rem;">💸</div>
+      <strong style="font-size:.95rem;">O primeiro PIX muda sua mentalidade</strong>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:.4rem;">Não é sobre o valor — é sobre a prova. Quando você recebe o primeiro pagamento online, o seu cérebro acredita que é real. E aí começa o crescimento de verdade.</p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>"Não espere as condições perfeitas para agir. Aja nas condições que você tem agora. A perfeição é inimiga do início."</p>
+    <cite>— Princípio fundamental deste guia</cite>
+  </div>
+
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin:2rem 0 1rem;">O que este guia NÃO é</h2>
+  <div class="error-box">
+    <strong>❌ Não é esquema de enriquecimento rápido.</strong> Aqui você vai construir uma base real, com clientes reais, que paga de verdade. Pode começar pequeno — mas é sólido.
+  </div>
+
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin:2rem 0 1rem;">O que você vai conseguir em 30 dias</h2>
+  <div class="checklist-item"><div class="check-box checked"></div><div class="checklist-text">Uma estrutura digital organizada e profissional</div></div>
+  <div class="checklist-item"><div class="check-box checked"></div><div class="checklist-text">Um serviço definido que você consegue oferecer hoje</div></div>
+  <div class="checklist-item"><div class="check-box checked"></div><div class="checklist-text">Um mini portfólio criado do zero (mesmo sem clientes anteriores)</div></div>
+  <div class="checklist-item"><div class="check-box checked"></div><div class="checklist-text">Scripts prontos para abordar e fechar clientes</div></div>
+  <div class="checklist-item"><div class="check-box checked"></div><div class="checklist-text">Seu primeiro cliente e seu primeiro PIX</div></div>
+  <div class="checklist-item"><div class="check-box checked"></div><div class="checklist-text">Um plano claro para os próximos 90 dias</div></div>
+
+  <div class="highlight-box mt2">
+    <strong>Regra de Ouro:</strong> Execução imperfeita vale infinitamente mais do que planejamento perfeito. Você não precisa fazer tudo certo — você precisa fazer agora.
+  </div>
+</section>
+
+<!-- SEMANA 1 -->
+<section id="semana1">
+  <div class="section-label">◆ Semana 1 · Dias 1–7</div>
+  <h1 class="section-title"><span class="gradient-text">Preparação</span> Inteligente</h1>
+  <div class="divider"></div>
+
+  <div class="week-banner mb3">
+    <div class="week-number">01</div>
+    <div class="section-label" style="margin-bottom:.5rem;">Objetivo da semana</div>
+    <h2 class="week-title">Organizar. Configurar. Começar.</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Antes de vender qualquer coisa, você precisa de uma base organizada. Nesta semana, você vai montar a estrutura mínima necessária para parecer profissional — sem gastar nada.</p>
+    <div class="week-goals">
+      <span class="week-goal-tag">🧠 Mentalidade</span>
+      <span class="week-goal-tag">📁 Google Drive</span>
+      <span class="week-goal-tag">💬 WhatsApp Pro</span>
+      <span class="week-goal-tag">🎨 Canva</span>
+      <span class="week-goal-tag">🤖 ChatGPT</span>
+      <span class="week-goal-tag">📸 Instagram Bio</span>
+    </div>
+  </div>
+
+  <!-- DIA 1 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 01</span>
+      <span class="day-title-text">Organizar a Mentalidade e o Celular</span>
+      <span class="day-time">⏱ 30 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Eliminar o caos digital, criar espaço mental para o projeto e tomar a decisão real de começar.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">O que fazer hoje</div>
+        <ul>
+          <li>Limpar a galeria e liberar espaço no celular (mínimo 2GB livres)</li>
+          <li>Criar uma pasta chamada <strong>"NEGÓCIO DIGITAL"</strong> no Google Drive</li>
+          <li>Dentro dela, criar 4 subpastas: <em>Portfólio / Clientes / Scripts / Ideias</em></li>
+          <li>Escrever no bloco de notas do celular: <strong>Por que eu quero essa renda extra?</strong> (3 razões reais)</li>
+          <li>Definir o horário fixo de 45 minutos que você vai dedicar todo dia</li>
+        </ul>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Ferramentas</div>
+        <div class="tools-chips">
+          <span class="tool-chip">Google Drive</span>
+          <span class="tool-chip">Bloco de Notas</span>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <strong>Resultado esperado:</strong> Um Google Drive organizado e a decisão consciente de seguir o plano por 30 dias.
+      </div>
+      <div class="error-box">
+        <strong>Erro mais comum:</strong> Pular esse dia achando que "é só organização". Não é. Organização mental é o que vai te manter consistente nos próximos 29 dias.
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Atalho inteligente:</strong> Use o Google Drive pelo celular mesmo. Não precisa de computador para criar pastas e organizar arquivos.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 2 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 02</span>
+      <span class="day-title-text">Configurar o WhatsApp Profissional</span>
+      <span class="day-time">⏱ 40 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Transformar o WhatsApp pessoal em um perfil que transmite credibilidade antes mesmo de você falar uma palavra.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li><strong>Foto de perfil:</strong> Use uma foto sua com boa iluminação (natural, perto de janela). Sorriso suave, fundo neutro. Se não quiser aparecer, use logo ou avatar criado no Canva.</li>
+          <li><strong>Nome:</strong> Seu nome + o que você faz. Ex: <em>"Ana | Criação de Posts"</em> ou <em>"Carlos | Assistente Virtual"</em></li>
+          <li><strong>Recado (Status):</strong> Escreva algo como: <em>"Criando posts e artes para pequenos negócios 🎨 | Respondo em até 2h"</em></li>
+          <li><strong>Catálogo:</strong> Ative o catálogo do WhatsApp Business e crie pelo menos 1 serviço (mesmo que fictício por enquanto)</li>
+          <li><strong>Mensagem automática:</strong> Configure uma mensagem de ausência profissional</li>
+        </ul>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Ferramentas</div>
+        <div class="tools-chips">
+          <span class="tool-chip">WhatsApp Business</span>
+          <span class="tool-chip">Canva (foto de perfil)</span>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <strong>Resultado esperado:</strong> Um perfil do WhatsApp que, quando alguém abre, já entende o que você faz e sente profissionalismo.
+      </div>
+      <div class="error-box">
+        <strong>Erro mais comum:</strong> Usar foto com filtro exagerado, fundo bagunçado ou foto de grupo. Isso afasta clientes antes mesmo de conversar.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 3 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 03</span>
+      <span class="day-title-text">Aprender a Usar o ChatGPT como Assistente</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Dominar os primeiros prompts que vão acelerar tudo o que você fizer daqui pra frente.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Acesse chat.openai.com e crie conta gratuita (se ainda não tem)</li>
+          <li>Pratique os 5 prompts fundamentais abaixo — um de cada vez</li>
+          <li>Salve os resultados no Google Drive (pasta Ideias)</li>
+        </ul>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">5 Prompts Para Praticar Hoje</div>
+        <div class="template-box" style="margin-top:1rem;">
+          <div class="template-label">PROMPT 1 — CRIAR POST</div>
+          <p style="padding-top:.5rem;">"Crie 3 legendas para Instagram para uma padaria artesanal em [cidade]. Tom amigável, inclua uma chamada para ação e hashtags relevantes."</p>
+        </div>
+        <div class="template-box">
+          <div class="template-label">PROMPT 2 — CRIAR OFERTA</div>
+          <p style="padding-top:.5rem;">"Me ajude a criar uma oferta de serviço simples para criar posts de Instagram para pequenos negócios. Inclua o que está incluído, preço sugerido para iniciante e diferencial."</p>
+        </div>
+        <div class="template-box">
+          <div class="template-label">PROMPT 3 — RESPONDER CLIENTE</div>
+          <p style="padding-top:.5rem;">"Um cliente me perguntou pelo WhatsApp: 'Quanto você cobra para fazer posts?' Me dê 2 versões de resposta: uma mais direta e uma que primeiro entende a necessidade."</p>
+        </div>
+        <div class="template-box">
+          <div class="template-label">PROMPT 4 — CRIAR BIO</div>
+          <p style="padding-top:.5rem;">"Crie uma bio profissional para Instagram para alguém que cria posts e artes para pequenas empresas. Máximo 150 caracteres, com emoji e chamada para ação."</p>
+        </div>
+        <div class="template-box">
+          <div class="template-label">PROMPT 5 — PLANEJAR SEMANA</div>
+          <p style="padding-top:.5rem;">"Sou iniciante em renda extra digital. Me dê um plano de 5 ações simples para conseguir meu primeiro cliente usando apenas WhatsApp e Instagram, sem gastar dinheiro."</p>
+        </div>
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Atalho inteligente:</strong> Sempre que travar, pergunte ao ChatGPT: "Me dê 5 variações mais simples do que você acabou de escrever." Ele adapta na hora.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 4 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 04</span>
+      <span class="day-title-text">Criar uma Arte Simples no Canva</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Criar sua primeira peça visual no Canva gratuito e entender o básico da ferramenta que vai sustentar seu portfólio.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Acesse canva.com e crie conta gratuita (ou baixe o app)</li>
+          <li>Escolha: <strong>Post para Instagram (1080x1080)</strong></li>
+          <li>Busque no campo de pesquisa: <em>"restaurante moderno"</em> ou <em>"salão de beleza"</em></li>
+          <li>Escolha um template gratuito (tem filtro "Grátis")</li>
+          <li>Substitua o texto pelo nome fictício de uma empresa. Ex: <em>"Padaria Bella"</em></li>
+          <li>Mude as cores para combinar com o negócio</li>
+          <li>Baixe o post e salve na pasta <strong>Portfólio</strong> do Google Drive</li>
+          <li>Crie mais 2 variações (mude só as cores e o texto)</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <strong>Resultado esperado:</strong> 3 posts criados para um negócio fictício. Esse é o início do seu portfólio.
+      </div>
+      <div class="error-box">
+        <strong>Erro mais comum:</strong> Querer criar algo do zero sem usar template. Use os templates. Eles existem pra isso e economizam horas de trabalho.
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Dica bônus:</strong> No Canva gratuito você pode criar apresentações, cartazes, logotipos e stories. Explore as categorias para ver o que é possível.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 5 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 05</span>
+      <span class="day-title-text">Criar o Perfil Profissional no Instagram</span>
+      <span class="day-time">⏱ 40 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Montar um perfil no Instagram que seja seu cartão de visitas digital — simples, claro e profissional.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Se já tem conta pessoal, converta para <strong>Conta Profissional</strong> (Criador de Conteúdo)</li>
+          <li>Nome do perfil: Seu nome ou nome do seu serviço. Ex: <em>@artes.pelaana</em> ou <em>@carolinacria</em></li>
+          <li>Bio: use o que o ChatGPT criou no Dia 3</li>
+          <li>Link na bio: coloque o link do WhatsApp (wa.me/55seunúmero)</li>
+          <li>Foto de perfil: a mesma do WhatsApp (consistência visual)</li>
+          <li>Poste os 3 posts do Canva criados no Dia 4</li>
+          <li>Legenda simples: <em>"Criando artes para pequenos negócios 🎨 — Orçamento pelo WhatsApp no link da bio"</em></li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <strong>Resultado esperado:</strong> Perfil no ar com 3 publicações e link para contato. Seu negócio existe agora digitalmente.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 6 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 06</span>
+      <span class="day-title-text">Definir Sua Rotina de 45 Minutos</span>
+      <span class="day-time">⏱ 30 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Criar o sistema que vai te manter consistente nas próximas 3 semanas — sem depender de motivação.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Decida um horário fixo (ex: 21h30 todo dia). Coloque alarme.</li>
+          <li>Crie uma lista de verificação diária (você vai ver na seção Checklists)</li>
+          <li>No Google Drive, crie um arquivo "DIÁRIO DE PROGRESSO" — escreva uma linha todo dia</li>
+          <li>Regra simples: se não fizer tudo, faça pelo menos UMA coisa</li>
+          <li>Avise alguém de confiança sobre seu projeto — compromisso social funciona</li>
+        </ul>
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Atalho mental:</strong> Não tente ter motivação. Crie o ambiente. Coloque o celular na mesa, abra o Canva ou o ChatGPT — o começo é o mais difícil, não o meio.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 7 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 07</span>
+      <span class="day-title-text">Revisão da Semana + Primeiros Contatos Tímidos</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Consolidar tudo o que foi criado e dar o primeiro passo real: comentar em perfis de pequenos negócios.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Revise tudo que criou durante a semana</li>
+          <li>No Instagram, busque: <em>"padaria [sua cidade]"</em>, <em>"salão beleza [sua cidade]"</em></li>
+          <li>Encontre 10 perfis de pequenos negócios locais</li>
+          <li>Deixe comentários genuínos em 5 deles (não venda nada ainda)</li>
+          <li>Salve os outros 5 para abordar na semana que vem</li>
+          <li>Escreva no diário: o que você aprendeu essa semana?</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <strong>Resultado esperado:</strong> Você tem estrutura montada, ferramentas dominadas e os primeiros contatos identificados. Próxima semana: construir a oferta.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMANA 2 -->
+<section id="semana2">
+  <div class="section-label">◆ Semana 2 · Dias 8–14</div>
+  <h1 class="section-title">Construção da <span class="gradient-text">Primeira Oferta</span></h1>
+  <div class="divider"></div>
+
+  <div class="week-banner mb3">
+    <div class="week-number">02</div>
+    <div class="section-label" style="margin-bottom:.5rem;">Objetivo da semana</div>
+    <h2 class="week-title">Definir. Criar. Precificar.</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Você vai escolher um serviço simples, criar um mini portfólio real usando IA e Canva, e montar uma oferta clara com preço definido. Ao final desta semana, você tem algo concreto para oferecer.</p>
+    <div class="week-goals">
+      <span class="week-goal-tag">🎯 Nicho definido</span>
+      <span class="week-goal-tag">📂 Mini portfólio</span>
+      <span class="week-goal-tag">💰 Preço definido</span>
+      <span class="week-goal-tag">📝 Oferta escrita</span>
+    </div>
+  </div>
+
+  <!-- DIA 8 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 08</span>
+      <span class="day-title-text">Escolher o Serviço Que Você Vai Oferecer</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Tomar a decisão mais importante: o que você vai vender. Simplicidade agora vale mais que perfeição.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Como escolher seu serviço</div>
+        <p style="margin-bottom:.75rem;">Responda essas 3 perguntas para cada opção:</p>
+        <ul>
+          <li>Eu consigo aprender o básico em menos de 3 dias?</li>
+          <li>Tem demanda local (tem negócio que precisaria disso)?</li>
+          <li>Dá pra fazer pelo celular mesmo?</li>
+        </ul>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">As 5 Melhores Opções para Iniciantes</div>
+        <div class="grid2 mt1">
+          <div class="card" style="padding:1rem;">
+            <strong style="color:var(--green);">🎨 Criação de Posts</strong>
+            <p style="font-size:13px;color:var(--muted);margin-top:.3rem;">Usar Canva para criar posts para Instagram de pequenos negócios locais. Ticket: R$50–150/mês</p>
+          </div>
+          <div class="card" style="padding:1rem;">
+            <strong style="color:var(--green);">✍️ Criação de Legendas</strong>
+            <p style="font-size:13px;color:var(--muted);margin-top:.3rem;">Escrever legendas para Instagram com ChatGPT. Ticket: R$80–200/mês</p>
+          </div>
+          <div class="card" style="padding:1rem;">
+            <strong style="color:var(--green);">📱 Gestor de Instagram</strong>
+            <p style="font-size:13px;color:var(--muted);margin-top:.3rem;">Postar e responder comentários para pequenos negócios. Ticket: R$150–400/mês</p>
+          </div>
+          <div class="card" style="padding:1rem;">
+            <strong style="color:var(--green);">💌 Cartão Digital</strong>
+            <p style="font-size:13px;color:var(--muted);margin-top:.3rem;">Criar cartão de visitas digital no Canva. Ticket: R$30–80 por cartão</p>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <strong>Sua tarefa:</strong> Escolha 1 serviço. Só 1. Escreva no diário: <em>"Vou oferecer [SERVIÇO] para [NICHO] cobrando R$[VALOR]."</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 9 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 09</span>
+      <span class="day-title-text">Criar o Mini Portfólio com Exemplos Fictícios</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Criar 6–10 peças de portfólio com negócios fictícios. Ninguém precisa saber que são exemplos — eles mostram que você sabe fazer.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Use o ChatGPT para gerar nomes de negócios fictícios do seu nicho</li>
+          <li>Crie 3 posts para cada "cliente fictício" no Canva (no mínimo 2 negócios diferentes)</li>
+          <li>Varie os estilos: um mais sério, um mais colorido, um minimalista</li>
+          <li>Salve tudo na pasta Portfólio do Google Drive</li>
+          <li>Crie um álbum no Google Fotos com essas peças — isso vai ser seu "link do portfólio"</li>
+        </ul>
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Segredo:</strong> Quando alguém pedir portfólio, você manda o link do álbum. Ninguém pergunta "isso foi pago ou fictício?" — eles olham a qualidade do trabalho.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 10 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 10</span>
+      <span class="day-title-text">Escrever a Oferta Perfeita</span>
+      <span class="day-time">⏱ 40 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Escrever em linguagem simples e clara exatamente o que você oferece, o que está incluído e quanto custa.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Estrutura da Oferta Perfeita</div>
+        <div class="template-box" style="margin-top:.75rem;">
+          <div class="template-label">MODELO DE OFERTA</div>
+          <p style="padding-top:.5rem;">
+            🎨 <strong>Pacote Básico — Criação de Posts para Instagram</strong><br><br>
+            ✅ 12 posts por mês (3 por semana)<br>
+            ✅ Legenda criativa incluída<br>
+            ✅ Entrega em até 48h após aprovação<br>
+            ✅ 1 revisão por post<br>
+            ✅ Formatos: feed quadrado + stories<br><br>
+            💰 Investimento: R$99/mês<br>
+            📲 Pagamento via PIX<br><br>
+            🎁 Bônus desta semana: +4 artes para stories SEM custo adicional
+          </p>
+        </div>
+        <button class="copy-btn" onclick="copyText(this)" data-text="Pacote Básico — Criação de Posts para Instagram&#10;✅ 12 posts por mês&#10;✅ Legenda incluída&#10;✅ Entrega em 48h&#10;💰 R$99/mês via PIX">Copiar</button>
+      </div>
+      <div class="highlight-box">
+        <strong>Resultado esperado:</strong> Uma oferta escrita, clara e salva no Google Drive. Use o ChatGPT para criar variações.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 11 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 11</span>
+      <span class="day-title-text">Criar Arte de Apresentação da Oferta no Canva</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Transformar sua oferta em uma arte visual profissional — um "cardápio de serviços" que você pode mandar pelo WhatsApp.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>No Canva, busque: <em>"tabela de preços"</em> ou <em>"serviços profissional"</em></li>
+          <li>Escolha template com fundo escuro ou claro — que combine com sua identidade</li>
+          <li>Inclua: Nome do pacote, O que está incluído, Preço e uma frase de fechamento</li>
+          <li>Use cores consistentes com seu perfil do Instagram</li>
+          <li>Salve como imagem e como PDF</li>
+        </ul>
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Dica:</strong> Uma arte bem feita da oferta converte muito mais do que texto solto no WhatsApp. Visual = credibilidade.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 12 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 12</span>
+      <span class="day-title-text">Identificar 20 Potenciais Clientes</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Onde encontrar clientes sem gastar nada</div>
+        <ul>
+          <li><strong>Instagram:</strong> busque "[seu nicho] + [cidade]" — ex: "confeitaria São Paulo"</li>
+          <li><strong>Google Maps:</strong> pesquise o tipo de negócio na sua cidade — clique em cada um e anote o Instagram/WhatsApp</li>
+          <li><strong>Grupos de WhatsApp:</strong> grupos de empreendedores locais, grupos de bairro</li>
+          <li><strong>Contatos pessoais:</strong> amigos, família, ex-colegas que têm pequenos negócios</li>
+          <li><strong>Facebook:</strong> grupos de compradores e vendedores da cidade</li>
+        </ul>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Crie uma planilha simples</div>
+        <p>No Google Drive, crie uma planilha com colunas: <em>Nome / Contato / Rede social / Status / Data de contato</em>. Preencha com os 20 leads.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 13 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 13</span>
+      <span class="day-title-text">Aprender a Técnica do Follow-Up sem Ser Chato</span>
+      <span class="day-time">⏱ 30 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">O segredo do follow-up</div>
+        <p>A maioria das vendas acontece no 2º ou 3º contato. Quem não faz follow-up perde dinheiro. Mas existe uma forma de fazer sem parecer desesperado.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Regra dos 3 Contatos</div>
+        <ul>
+          <li><strong>Dia 1:</strong> Primeiro contato (apresentação + portfólio)</li>
+          <li><strong>Dia 4:</strong> Follow-up de valor (manda uma dica gratuita ou um post de exemplo para o negócio dele)</li>
+          <li><strong>Dia 10:</strong> Follow-up final (pergunta direta e gentil)</li>
+        </ul>
+        <p style="margin-top:.75rem;font-size:13.5px;color:var(--muted);">Depois do 3º contato sem resposta: arquive e siga para o próximo. Não insista mais.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 14 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 14</span>
+      <span class="day-title-text">Revisão + Preparação para Primeira Abordagem</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Checklist de Prontidão</div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">✅ Serviço escolhido</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">✅ Portfólio com mínimo 6 peças criadas</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">✅ Oferta escrita e em arte no Canva</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">✅ 20 potenciais clientes identificados</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">✅ Scripts de abordagem prontos (próxima semana)</div></div>
+      </div>
+      <div class="highlight-box">
+        <strong>Você está pronto para a Semana 3.</strong> Na semana que vem, começa o contato real. É normal sentir frio na barriga — isso significa que você está crescendo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMANA 3 -->
+<section id="semana3">
+  <div class="section-label">◆ Semana 3 · Dias 15–21</div>
+  <h1 class="section-title">Primeiros Contatos e <span class="gradient-text">Primeira Venda</span></h1>
+  <div class="divider"></div>
+
+  <div class="week-banner mb3">
+    <div class="week-number">03</div>
+    <div class="section-label" style="margin-bottom:.5rem;">Objetivo da semana</div>
+    <h2 class="week-title">Abordar. Conversar. Fechar.</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">É a semana do medo e da virada. Você vai mandar as primeiras mensagens reais, lidar com respostas (ou silêncio), e fechar seu primeiro cliente.</p>
+    <div class="week-goals">
+      <span class="week-goal-tag">💬 Primeiro contato</span>
+      <span class="week-goal-tag">🤝 Negociação</span>
+      <span class="week-goal-tag">💸 Primeiro PIX</span>
+    </div>
+  </div>
+
+  <!-- DIA 15 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 15</span>
+      <span class="day-title-text">Enviar as Primeiras 5 Mensagens</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo do dia</div>
+        <p>Superar o medo e enviar 5 mensagens reais. Não espere que todas respondam — espere que pelo menos 1 ou 2 se interessem.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Script de Primeiro Contato (WhatsApp)</div>
+        <div class="template-box" style="margin-top:.75rem;position:relative;">
+          <div class="template-label">SCRIPT — PRIMEIRO CONTATO</div>
+          <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+          <p style="padding-top:.5rem;">
+            Oi [Nome]! Tudo bem? 😊<br><br>
+            Vi o perfil do [nome do negócio] no Instagram e adorei o conceito de vocês!<br><br>
+            Sou [Seu nome], crio posts e artes para pequenos negócios aqui em [cidade]. Percebi que vocês têm um perfil com potencial enorme, mas a frequência de postagens poderia ser maior.<br><br>
+            Posso mandar alguns exemplos do meu trabalho pra você dar uma olhada? Não tem compromisso nenhum 😊
+          </p>
+        </div>
+      </div>
+      <div class="error-box">
+        <strong>❌ Erro fatal:</strong> Mandar preço logo no primeiro contato. Primeiro gere interesse, depois apresente a solução, só então fale em valor.
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Mentalidade certa:</strong> Você está oferecendo uma solução, não mendigando um cliente. Essa postura muda tudo na comunicação.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 16 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 16</span>
+      <span class="day-title-text">Responder Interesse + Apresentar Portfólio</span>
+      <span class="day-time">⏱ 40 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Quando alguém responder "pode mandar"</div>
+        <div class="template-box" style="position:relative;">
+          <div class="template-label">SCRIPT — ENVIO DO PORTFÓLIO</div>
+          <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+          <p style="padding-top:.5rem;">
+            Que ótimo! 🎉<br><br>
+            Vou mandar alguns exemplos de trabalhos que já fiz. São para negócios parecidos com o seu.<br><br>
+            [manda as artes ou link do álbum]<br><br>
+            O que você achou? Posso criar algo parecido ou adaptado para o estilo de vocês. Tenho um pacote específico para pequenos negócios que tem gerado muito resultado. Posso explicar como funciona?
+          </p>
+        </div>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Se perguntarem "quanto custa?"</div>
+        <div class="template-box" style="position:relative;">
+          <div class="template-label">SCRIPT — APRESENTAÇÃO DO PREÇO</div>
+          <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+          <p style="padding-top:.5rem;">
+            O investimento depende do que você precisa. Tenho pacotes a partir de R$[valor].<br><br>
+            Mas antes de falar em números, quero entender melhor o seu negócio pra indicar o que faz mais sentido pra você. Posso te fazer 2 perguntas rápidas?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 17 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 17</span>
+      <span class="day-title-text">Lidar com Objeções Comuns</span>
+      <span class="day-time">⏱ 35 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">As 4 Objeções Mais Comuns e Como Responder</div>
+        <div class="highlight-box">
+          <strong>"Tá caro"</strong><br>
+          <span style="color:#a0bca4;font-size:13.5px;">"Entendo! Tenho um plano menor que pode se encaixar melhor. Me diz, o quanto você pensou em investir nisso? Assim vejo se consigo criar algo dentro do seu orçamento."</span>
+        </div>
+        <div class="highlight-box">
+          <strong>"Vou pensar"</strong><br>
+          <span style="color:#a0bca4;font-size:13.5px;">"Claro! Enquanto isso, posso criar um post de exemplo para o seu negócio sem compromisso, pra você ver como ficaria na prática?"</span>
+        </div>
+        <div class="highlight-box">
+          <strong>"Já tenho quem faz"</strong><br>
+          <span style="color:#a0bca4;font-size:13.5px;">"Que legal! Se em algum momento precisar de uma segunda opção ou quiser comparar, pode me chamar. Boa sorte com o negócio! 😊"</span>
+        </div>
+        <div class="highlight-box">
+          <strong>"Não tenho dinheiro agora"</strong><br>
+          <span style="color:#a0bca4;font-size:13.5px;">"Sem problema! Posso fazer um post gratuito pra você agora — se gostar, quando tiver espaço no orçamento você me chama. Assim você já me conhece sem risco."</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 18 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 18</span>
+      <span class="day-title-text">Enviar Mais 10 Abordagens</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Regra do Números</div>
+        <p>Para fechar 1 cliente, você precisa abordar entre 15 e 30. Isso é normal. Não é fracasso — é funil de vendas.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Passo a passo</div>
+        <ul>
+          <li>Envie mais 10 mensagens usando o script do Dia 15</li>
+          <li>Varie o texto levemente em cada mensagem (personalize com o nome do negócio)</li>
+          <li>Registre tudo na planilha de leads</li>
+          <li>Responda qualquer retorno das mensagens do Dia 15</li>
+          <li>Use o ChatGPT para criar variações do script se travar</li>
+        </ul>
+      </div>
+      <div class="highlight-gold">
+        <strong>🔑 Meta do dia:</strong> 10 mensagens enviadas. Não se preocupe com respostas agora — isso é volume, e volume vira resultado.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 19 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 19</span>
+      <span class="day-title-text">Fazer o Post Gratuito Estratégico</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Estratégia do Post Grátis</div>
+        <p>Escolha 1 lead que demonstrou algum interesse (mesmo leve). Crie um post personalizado para o negócio <em>dele</em> — de graça, sem pedir nada.</p>
+        <p style="margin-top:.75rem;">Mande com esta mensagem:</p>
+        <div class="template-box" style="position:relative;">
+          <div class="template-label">SCRIPT — POST GRATUITO</div>
+          <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+          <p style="padding-top:.5rem;">
+            Oi [Nome]! Fiz um post de exemplo para a [nome do negócio] — queria mostrar na prática como seria trabalhar juntos 😊<br><br>
+            [manda a arte]<br><br>
+            Pode usar à vontade! E se gostar do estilo, me conta — tenho um pacote que cabe bem no orçamento de pequenos negócios.
+          </p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <strong>Por que isso funciona:</strong> Você entregou valor antes de pedir dinheiro. O cliente viu o trabalho real, personalizado. A conversão é muito maior do que no contato frio.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 20 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 20</span>
+      <span class="day-title-text">Fechar o Primeiro Cliente</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Script de Fechamento</div>
+        <div class="template-box" style="position:relative;">
+          <div class="template-label">SCRIPT — FECHAMENTO</div>
+          <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+          <p style="padding-top:.5rem;">
+            Oi [Nome]! Que bom que gostou! 🎉<br><br>
+            Para você começar, preciso de apenas:<br>
+            • Logo ou nome do negócio<br>
+            • Cores preferidas (ou pode me deixar criar)<br>
+            • 2 ou 3 produtos/serviços principais<br><br>
+            O investimento é R$[valor] via PIX. Assim que confirmar o pagamento, já começo e entrego em até 48h.<br><br>
+            Vou te mandar os dados do PIX agora?
+          </p>
+        </div>
+      </div>
+      <div class="highlight-box" style="background:rgba(34,197,94,0.15);">
+        <strong style="color:var(--green);font-size:1rem;">🎉 QUANDO VOCÊ RECEBER O PIX...</strong>
+        <p style="margin-top:.5rem;">Pare por 30 segundos. Respire fundo. Você acabou de provar para si mesmo que funciona. Esse é o momento que muda tudo. Agora você tem certeza.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 21 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 21</span>
+      <span class="day-title-text">Entregar com Excelência + Pedir Indicação</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Regra de Ouro da Entrega</div>
+        <p>Entregue mais do que foi prometido. Se prometeu 3 posts, entregue 4. Se prometeu em 48h, entregue em 24h. Isso gera indicação automática.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Script de Pedido de Indicação</div>
+        <div class="template-box" style="position:relative;">
+          <div class="template-label">SCRIPT — INDICAÇÃO</div>
+          <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+          <p style="padding-top:.5rem;">
+            [Nome], fico muito feliz que você aprovou! 😊<br><br>
+            Me faz um favor? Se você conhece algum outro dono de negócio que possa precisar de posts ou artes, me indica? Eu atendo com a mesma dedicação.<br><br>
+            Pode ser um amigo, familiar ou conhecido. Sua indicação é o maior presente pra mim! 🙏
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMANA 4 -->
+<section id="semana4">
+  <div class="section-label">◆ Semana 4 · Dias 22–30</div>
+  <h1 class="section-title">Escala Inicial e <span class="gradient-text">Visão de Futuro</span></h1>
+  <div class="divider"></div>
+
+  <div class="week-banner mb3">
+    <div class="week-number">04</div>
+    <div class="section-label" style="margin-bottom:.5rem;">Objetivo da semana</div>
+    <h2 class="week-title">Organizar. Crescer. Planejar.</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:1rem;">Você já tem o primeiro resultado. Agora é hora de criar consistência, aumentar o preço gradualmente e traçar os próximos 90 dias.</p>
+    <div class="week-goals">
+      <span class="week-goal-tag">📈 Novos clientes</span>
+      <span class="week-goal-tag">💰 Aumento de preço</span>
+      <span class="week-goal-tag">🗓 Planejamento 90 dias</span>
+      <span class="week-goal-tag">🏦 Primeiros investimentos</span>
+    </div>
+  </div>
+
+  <!-- DIA 22 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 22</span>
+      <span class="day-title-text">Organizar Clientes e Fluxo de Trabalho</span>
+      <span class="day-time">⏱ 40 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Criar sistema simples de gestão</div>
+        <ul>
+          <li>Na planilha de leads, adicione colunas: <em>Status / Valor pago / Prazo de entrega / Observações</em></li>
+          <li>Crie uma pasta no Google Drive para <strong>cada cliente</strong></li>
+          <li>Dentro de cada pasta: briefing, artes aprovadas, artes em produção</li>
+          <li>Crie uma rotina: manhã = criação / tarde = revisão / noite = prospecção</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <strong>Por que isso importa:</strong> Com 3+ clientes, sem organização você vai travar. Sistema simples agora evita caos depois.
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 23-24 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 23–24</span>
+      <span class="day-title-text">Continuar Prospecção + Primeiras Indicações</span>
+      <span class="day-time">⏱ 45 min/dia</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Objetivo</div>
+        <p>Manter o volume de prospecção mesmo enquanto atende. A tentação de parar quando tem cliente é real — mas perigosa.</p>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Meta dos dois dias</div>
+        <ul>
+          <li>Enviar 5 mensagens por dia (total 10 nesses 2 dias)</li>
+          <li>Fazer follow-up com os leads que não responderam na semana passada</li>
+          <li>Pedir que seu primeiro cliente te indique para 2 amigos</li>
+          <li>Atender e entregar para o cliente atual com excelência</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 25 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 25</span>
+      <span class="day-title-text">Quando e Como Aumentar o Preço</span>
+      <span class="day-time">⏱ 30 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">A regra do aumento de preço</div>
+        <p>Você começa com um preço de iniciante para conseguir os primeiros clientes e construir portfólio real. Mas isso não é permanente.</p>
+        <div class="grid3 mt1">
+          <div class="card" style="padding:.875rem;text-align:center;">
+            <div style="font-size:1.3rem;color:var(--green);font-weight:700;">Mês 1</div>
+            <div style="font-size:13px;color:var(--muted);">Preço de início</div>
+            <div style="font-weight:600;margin-top:.3rem;">R$79–99</div>
+          </div>
+          <div class="card card-gold" style="padding:.875rem;text-align:center;">
+            <div style="font-size:1.3rem;color:var(--gold);font-weight:700;">Mês 2–3</div>
+            <div style="font-size:13px;color:var(--muted);">Com resultados</div>
+            <div style="font-weight:600;margin-top:.3rem;">R$150–250</div>
+          </div>
+          <div class="card" style="padding:.875rem;text-align:center;">
+            <div style="font-size:1.3rem;color:var(--green);font-weight:700;">Mês 4+</div>
+            <div style="font-size:13px;color:var(--muted);">Estabelecido</div>
+            <div style="font-weight:600;margin-top:.3rem;">R$300–600+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 26-27 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 26–27</span>
+      <span class="day-title-text">Criar Rotina Sustentável de Longo Prazo</span>
+      <span class="day-time">⏱ 45 min/dia</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Sua Rotina Ideal</div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Segunda e Quarta: Criação de artes para clientes</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Terça e Quinta: Prospecção (5 mensagens/dia)</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Sexta: Revisões e follow-ups</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Sábado: Aprendizado (1 tutorial novo por semana)</div></div>
+        <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Domingo: Planejamento da semana seguinte (30 min)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 28 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 28</span>
+      <span class="day-title-text">Mini Planejamento Financeiro</span>
+      <span class="day-time">⏱ 40 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Regra Simples do Dinheiro que Entra</div>
+        <div class="grid3 mt1">
+          <div class="card" style="padding:1rem;text-align:center;">
+            <div style="font-size:2rem;">🏦</div>
+            <div style="font-weight:700;color:var(--green);margin:.4rem 0;">50%</div>
+            <div style="font-size:12px;color:var(--muted);">Guardar / Pagar contas</div>
+          </div>
+          <div class="card card-gold" style="padding:1rem;text-align:center;">
+            <div style="font-size:2rem;">📈</div>
+            <div style="font-weight:700;color:var(--gold);margin:.4rem 0;">30%</div>
+            <div style="font-size:12px;color:var(--muted);">Reinvestir no negócio</div>
+          </div>
+          <div class="card" style="padding:1rem;text-align:center;">
+            <div style="font-size:2rem;">🎯</div>
+            <div style="font-weight:700;color:var(--green);margin:.4rem 0;">20%</div>
+            <div style="font-size:12px;color:var(--muted);">Aprendizado / Cursos</div>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--muted);margin-top:1rem;">Com R$300/mês: guarda R$150, reinveste R$90 (em Canva Pro, por exemplo), aprende com R$60.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 29-30 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">Dia 29–30</span>
+      <span class="day-title-text">Plano dos Próximos 90 Dias</span>
+      <span class="day-time">⏱ 45 min</span>
+      <span class="day-chevron">▾</span>
+    </div>
+    <div class="day-body">
+      <div class="day-section">
+        <div class="day-section-label">Suas metas para os próximos 3 meses</div>
+        <div class="highlight-box">
+          <strong>Mês 2 — Estabilidade:</strong> Ter 3–5 clientes fixos mensais. Faturar R$300–600/mês. Melhorar as artes com base no feedback.
+        </div>
+        <div class="highlight-box">
+          <strong>Mês 3 — Crescimento:</strong> Ter 5–10 clientes. Aumentar preço para R$150+. Especializar em 1 nicho específico.
+        </div>
+        <div class="highlight-gold">
+          <strong>Mês 4 — Expansão:</strong> Pensar em Canva Pro, novo serviço adicional, primeiros reais para poupar ou investir.
+        </div>
+      </div>
+      <div class="day-section">
+        <div class="day-section-label">Celebre sua conquista</div>
+        <p>Você chegou até aqui. Isso já é mais do que 90% das pessoas que começam. Você tem estrutura, portfólio, método e — o mais importante — <em>prova de que funciona</em>.</p>
+      </div>
+      <div class="quote-block">
+        <p>"Agora eu finalmente sei exatamente o que fazer para começar."</p>
+        <cite>— O que você deve estar sentindo agora</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLISTS -->
+<section id="checklists">
+  <div class="section-label">◆ Ferramentas</div>
+  <h1 class="section-title"><span class="gradient-text">Checklists</span> Completos</h1>
+  <div class="divider"></div>
+
+  <div class="grid2">
+    <div class="card mb2">
+      <h3 style="color:var(--green);margin-bottom:1rem;font-size:1rem;">✅ Checklist Diário</h3>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Abrir o guia e ver a tarefa do dia</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Executar a tarefa principal do dia</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Enviar ao menos 3 mensagens de prospecção</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Responder leads pendentes</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Registrar progresso no diário</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Atualizar planilha de leads</div></div>
+    </div>
+    <div class="card mb2">
+      <h3 style="color:var(--gold);margin-bottom:1rem;font-size:1rem;">📋 Checklist Semanal</h3>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Revisar quantos contatos foram feitos</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Fazer follow-up com leads sem resposta</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Criar 2 peças novas para o portfólio</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Revisar e atualizar oferta se necessário</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Definir metas para a próxima semana</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Aprender 1 coisa nova (tutorial, vídeo)</div></div>
+    </div>
+    <div class="card mb2">
+      <h3 style="color:var(--green);margin-bottom:1rem;font-size:1rem;">🛠 Checklist de Ferramentas</h3>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Google Drive organizado com pastas</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">WhatsApp Business configurado</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Canva conta gratuita criada</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">ChatGPT conta gratuita criada</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Instagram perfil profissional ativo</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Planilha de leads criada</div></div>
+    </div>
+    <div class="card mb2">
+      <h3 style="color:var(--gold);margin-bottom:1rem;font-size:1rem;">🎯 Checklist do Primeiro Cliente</h3>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Portfólio com mínimo 6 peças</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Oferta escrita e em arte visual</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Scripts de contato prontos</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">15+ leads identificados</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Chave PIX configurada</div></div>
+      <div class="checklist-item"><div class="check-box" onclick="toggleCheck(this)"></div><div class="checklist-text">Prazo de entrega definido</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section id="templates">
+  <div class="section-label">◆ Modelos Prontos</div>
+  <h1 class="section-title"><span class="gradient-text">Scripts e Prompts</span><br>Para Copiar e Usar</h1>
+  <div class="divider"></div>
+
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin:2rem 0 1rem;color:var(--green);">💬 Scripts WhatsApp</h2>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">PRIMEIRO CONTATO — FRIO</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      Oi [Nome]! Tudo bem? 😊<br>
+      Vi o [nome do negócio] no Instagram e achei incrível o que vocês fazem!<br>
+      Sou [Seu nome] e trabalho criando posts e conteúdo visual para pequenos negócios.<br>
+      Posso te mostrar alguns exemplos do que faço? Não tem compromisso 😉
+    </p>
+  </div>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">FOLLOW-UP DE VALOR</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      Oi [Nome]! Passei por aqui pra deixar uma dica rápida:<br>
+      Posts com horários de funcionamento geram muito engajamento pra [tipo de negócio]!<br>
+      Fiz um exemplo pra vocês 👉 [manda arte]<br>
+      Pode usar! E se quiser mais posts assim todo mês, é só me chamar 😊
+    </p>
+  </div>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">PEDIDO DE INDICAÇÃO</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      [Nome], muito obrigado pela confiança! 🙏<br>
+      Tenho uma pergunta: você conhece algum outro negócio que possa precisar de posts ou artes?<br>
+      Sua indicação significa muito pra mim! E posso até fazer um bônus pra você por isso 😉
+    </p>
+  </div>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">FECHAMENTO COM PIX</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      Ótimo! Para começar, minha chave PIX é: [sua chave]<br>
+      Valor: R$[valor]<br>
+      Assim que confirmar, me manda o comprovante e já inicio hoje mesmo! 🚀<br>
+      Preciso de: logo (ou nome), cores e 3 produtos/serviços principais.
+    </p>
+  </div>
+
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin:2rem 0 1rem;color:var(--gold);">🤖 Prompts ChatGPT</h2>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">CRIAR 10 LEGENDAS</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      Crie 10 legendas para Instagram para [tipo de negócio] em [cidade]. O tom deve ser [amigável/profissional/descontraído]. Inclua emojis, chamada para ação e 5 hashtags relevantes no final de cada uma. Varie entre legendas curtas (até 80 palavras) e médias (até 150 palavras).
+    </p>
+  </div>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">CRIAR OFERTA DE SERVIÇO</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      Crie uma proposta de serviço para oferecer criação de posts no Instagram para pequenas empresas. Inclua: nome do pacote, o que está incluso, o que NÃO está incluso, prazo de entrega, preço sugerido para iniciante (R$80-150/mês), bônus estratégico e frase de fechamento persuasiva. Tom: profissional mas próximo.
+    </p>
+  </div>
+
+  <div class="template-box" style="position:relative;margin-bottom:1.5rem;">
+    <div class="template-label">RESPONDER OBJEÇÃO DE PREÇO</div>
+    <button class="copy-btn" onclick="copyTemplate(this)">Copiar</button>
+    <p style="padding-top:.5rem;">
+      Um cliente potencial disse que meu preço de R$[valor]/mês está caro. Me dê 3 formas diferentes de responder isso pelo WhatsApp: 1) Justificando o valor 2) Oferecendo um plano menor 3) Fazendo uma contraproposta para pagar parcelado. Tone: simpático, sem parecer desesperado.
+    </p>
+  </div>
+
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin:2rem 0 1rem;color:var(--green);">📸 Bio Instagram</h2>
+  <div class="grid2">
+    <div class="template-box" style="position:relative;">
+      <div class="template-label">BIO OPÇÃO 1</div>
+      <p style="padding-top:.5rem;">
+        🎨 Criando posts que geram resultado<br>
+        📱 Posts + Legendas + Stories<br>
+        🏙️ Atendo todo o Brasil<br>
+        👇 Orçamento no WhatsApp
+      </p>
+    </div>
+    <div class="template-box" style="position:relative;">
+      <div class="template-label">BIO OPÇÃO 2</div>
+      <p style="padding-top:.5rem;">
+        ✨ Seu negócio merece posts incríveis<br>
+        🖥️ Canva • IA • Estratégia<br>
+        💌 Respondo em até 2h<br>
+        🔗 Me chama no WhatsApp ↓
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section id="bonus">
+  <div class="section-label">◆ Bônus Exclusivo</div>
+  <h1 class="section-title">20 Serviços que Você Pode Vender<br><span class="gradient-text">Só com IA</span></h1>
+  <div class="divider"></div>
+
+  <p style="color:var(--muted);margin-bottom:2rem;">Todas as ideias abaixo são executáveis com celular, ChatGPT e Canva. Nenhuma exige experiência anterior — só aprendizado de 1 a 3 dias.</p>
+
+  <div style="overflow-x:auto;">
+  <table class="bonus-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Serviço</th>
+        <th>Dificuldade</th>
+        <th>Aprender em</th>
+        <th>Ticket médio</th>
+        <th>Chance rápida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>01</td><td>Posts para Instagram (Canva)</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$80–200/mês</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>02</td><td>Legendas e Captions (ChatGPT)</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$60–150/mês</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>03</td><td>Cartão de Visitas Digital</td><td><span class="difficulty diff-easy">Fácil</span></td><td>2 horas</td><td>R$30–80 por card</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>04</td><td>Bio do Instagram Profissional</td><td><span class="difficulty diff-easy">Fácil</span></td><td>30 min</td><td>R$30–60 por bio</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>05</td><td>Stories com Enquete/Promoção</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$50–120/mês</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>06</td><td>Cardápio Digital (PDF bonito)</td><td><span class="difficulty diff-easy">Fácil</span></td><td>2 dias</td><td>R$80–200 por cardápio</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>07</td><td>Assistente Virtual (WhatsApp)</td><td><span class="difficulty diff-med">Médio</span></td><td>3 dias</td><td>R$300–800/mês</td><td>⭐⭐⭐</td></tr>
+      <tr><td>08</td><td>Edição Simples de Vídeo (CapCut)</td><td><span class="difficulty diff-med">Médio</span></td><td>3 dias</td><td>R$100–300/mês</td><td>⭐⭐⭐</td></tr>
+      <tr><td>09</td><td>Criação de Logotipo Básico</td><td><span class="difficulty diff-med">Médio</span></td><td>2 dias</td><td>R$80–200 por logo</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>10</td><td>Newsletter por Email (ChatGPT)</td><td><span class="difficulty diff-med">Médio</span></td><td>2 dias</td><td>R$150–400/mês</td><td>⭐⭐⭐</td></tr>
+      <tr><td>11</td><td>Resposta a Comentários/DMs</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$200–400/mês</td><td>⭐⭐⭐</td></tr>
+      <tr><td>12</td><td>Convites Digitais (Aniversário/Evento)</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$30–80 por convite</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>13</td><td>Criação de Ebook Simples</td><td><span class="difficulty diff-med">Médio</span></td><td>3 dias</td><td>R$100–300 por ebook</td><td>⭐⭐⭐</td></tr>
+      <tr><td>14</td><td>Pesquisa e Curadoria de Conteúdo</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$100–250/mês</td><td>⭐⭐⭐</td></tr>
+      <tr><td>15</td><td>Planejamento de Posts (Calendário)</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$80–180/mês</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>16</td><td>Criação de Apresentação (Slides)</td><td><span class="difficulty diff-med">Médio</span></td><td>2 dias</td><td>R$80–250 por apresentação</td><td>⭐⭐⭐</td></tr>
+      <tr><td>17</td><td>Transcrição e Resumo de Reunião</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 hora</td><td>R$30–60 por resumo</td><td>⭐⭐⭐</td></tr>
+      <tr><td>18</td><td>Criação de Roteiro para Reels</td><td><span class="difficulty diff-med">Médio</span></td><td>2 dias</td><td>R$150–400/mês</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>19</td><td>Organização de Agenda (Google Calendar)</td><td><span class="difficulty diff-easy">Fácil</span></td><td>1 dia</td><td>R$200–400/mês</td><td>⭐⭐</td></tr>
+      <tr><td>20</td><td>Atendimento Inicial ao Cliente (FAQ)</td><td><span class="difficulty diff-med">Médio</span></td><td>3 dias</td><td>R$200–500/mês</td><td>⭐⭐⭐</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="highlight-box mt2">
+    <strong>Como usar esta tabela:</strong> Escolha o serviço com maior "Chance rápida" e menor "Dificuldade". Nos primeiros 30 dias, simplicidade ganha de complexidade em resultado.
+  </div>
+
+  <!-- AGRADECIMENTO -->
+  <div style="text-align:center;margin-top:5rem;padding:3rem;background:var(--card);border:1px solid var(--border);border-radius:20px;">
+    <div style="font-size:2.5rem;margin-bottom:1rem;">🎉</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:1rem;">Você chegou ao fim do guia.</h2>
+    <p style="color:var(--muted);max-width:500px;margin:0 auto 2rem;">Mas isso é só o começo. O guia foi lido — agora a sua história começa. Siga o plano, não pule dias, e em 30 dias você vai olhar pra trás e não acreditar no quanto avançou.</p>
+    <div class="quote-block" style="text-align:left;max-width:500px;margin:0 auto 2rem;">
+      <p>"Você não precisa ser ótimo para começar, mas precisa começar para ser ótimo."</p>
+      <cite>— Zig Ziglar</cite>
+    </div>
+    <a href="#cover" class="cta-btn">↑ Voltar ao início</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Guia Primeiro Mês</div>
+  <p style="margin:.5rem 0;">Produzido com 💚 para quem quer começar do zero de verdade.</p>
+  <p style="font-size:11px;margin-top:.5rem;color:#4a5e4e;">Edição 2026 · Conteúdo para fins educacionais · Todos os direitos reservados</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement;
+  const p=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;
+  document.getElementById('progress').style.width=p+'%';
+});
+
+function toggleDay(header){
+  const body=header.nextElementSibling;
+  const isOpen=header.classList.contains('open');
+  document.querySelectorAll('.day-header.open').forEach(h=>{
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){
+    header.classList.add('open');
+    body.classList.add('open');
+    setTimeout(()=>header.scrollIntoView({behavior:'smooth',block:'start'}),100);
+  }
+}
+
+function toggleCheck(box){
+  box.classList.toggle('checked');
+  const text=box.nextElementSibling;
+  text.classList.toggle('done');
+}
+
+function copyTemplate(btn){
+  const box=btn.closest('.template-box');
+  const p=box.querySelector('p');
+  const text=p.innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='✓ Copiado!';
+    btn.style.color='var(--green)';
+    setTimeout(()=>{ btn.textContent='Copiar'; btn.style.color=''; },2000);
+  });
+}
+
+function copyText(btn){
+  const text=btn.getAttribute('data-text').replace(/&#10;/g,'\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='✓ Copiado!';
+    setTimeout(()=>btn.textContent='Copiar',2000);
+  });
+}
+</script>
+</body>
+</html>
